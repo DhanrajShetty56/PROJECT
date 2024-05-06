@@ -1,10 +1,11 @@
+#importing important libraries
 from googleapiclient.discovery import build
 import pymongo
 import pandas as pd
 import psycopg2
 import streamlit as st
 
-
+#API connection
 def Api_connect():
     Api_Id = "AIzaSyDleyUBU7KGANE6uVrq6ZF_CI4UIpWdvgc"
     api_service_name ="youtube"
@@ -135,7 +136,7 @@ def get_commentdetails(Videos_Ids):
 
 # Connecting to MongoDB
 
-client = pymongo.MongoClient("mongodb+srv://sonushetty5666:TCF9fbuMQbyJlAAw@cluster0.uvnke63.mongodb.net/")
+client = pymongo.MongoClient("mongodb+srv://dhanraj56:DJtvkxxvzd54qzF4@cluster0.0xjsjhm.mongodb.net/")
 
 db1 = client['youtube']
 mycol = db1["Channel details"]
@@ -160,7 +161,7 @@ def channel_table():
     db_1=psycopg2.connect(host='localhost',
                             user='postgres',
                             password='9867335172$Ss',
-                            database='yt_db',
+                            database='youtube',
                             port= '5432')
 
     cursor = db_1.cursor()
@@ -227,7 +228,7 @@ def video_table():
         db_1=psycopg2.connect(host='localhost',
                         user='postgres',
                         password='9867335172$Ss',
-                        database='yt_db',
+                        database='youtube',
                         port= '5432')
 
         cursor = db_1.cursor()
@@ -315,7 +316,7 @@ def comment_table():
     db_1=psycopg2.connect(host='localhost',
                             user='postgres',
                             password='9867335172$Ss',
-                            database='yt_db',
+                            database='youtube',
                             port= '5432')
 
     cursor = db_1.cursor()
@@ -413,11 +414,11 @@ st.set_page_config(
     page_title='YOUTUBE DATA HARVESTING AND WAREHOUSING PROJECT',
     layout="wide"
     )
-
-st.title(':blue[YOUTUBE DATA HARVESTING AND WAREHOUSING PROJECT]')
+  
+st.title(':rainbow[YOUTUBE DATA HARVESTING AND WAREHOUSING]')
 
 with st.sidebar:
-     st.title(':red[This Streamlit application allows users to access and analyze data from multiple YouTube channels]')
+     st.title(':blue[This application allows users to access and analyze data from multiple YouTube channels]')
      st.header('The application has the following features:')
      st.markdown('- Ability to input a YouTube channel ID and retrieve all the relevant data using Google API')
      st.markdown('- Option to store the data in a MongoDB database as a data lake')
@@ -464,7 +465,7 @@ if show_table == 'Comments':
 db_1=psycopg2.connect(host='localhost',
                         user='postgres',
                         password='9867335172$Ss',
-                        database='yt_db',
+                        database='youtube',
                         port= '5432')
 
 cursor = db_1.cursor()
